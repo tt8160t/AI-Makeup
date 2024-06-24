@@ -21,6 +21,11 @@
 2. 將前端頁面JSP與後端Flask串接達到即時拍照的功能
 3. 拍完的照片進行上妝後，透過http request的協定方式傳到後端python中的程式碼，進行跑模上妝，並回傳。
 
+## 運作流程
+1. 透過eclipse import AI-Makeup.war專案並透過tomcat9.0 server開啟
+2. 透過VSCode開啟photo.py並執行，而其中photo.py依序有import從Ori_cutface.py------>putcolor_onface.py
+3. 在photo.py會建立socket.io完成即時呈現攝影及拍照功能，通過photo.jsp中的fetch建立 HTTP 請求(photo.py中的app.route)連接，實現動態數據加載和響應式網頁功能。
+
 ## 流程中碰到的問題
 1. 無法呈現即時上妝，因為消耗的資源過大導致類格很嚴重，因此後續是透過"即時拍照"後才進行上妝
 2. 傳達到後端之後，對於圖片的一些處理(包含切割、跑模、回傳圖片等等流程)，由於隊員當初都是一個功能一個功能輸出一張圖片，上一個功能輸出的圖片傳給下一個，導致很多呼叫function都是讀取上一個功能的輸出圖片所寫成的絕對路徑。
